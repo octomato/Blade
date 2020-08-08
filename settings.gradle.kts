@@ -1,0 +1,9 @@
+include(
+    ":app",
+    ":core:uiGears",
+    ":core:test:unitTest",
+    ":core:test:integrationTest",
+    ":core:extensions",
+    ":core:injections",
+    ":buildSrc"
+)
