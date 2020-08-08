@@ -6,6 +6,8 @@ include(
     ":core:test:integrationTest",
     ":core:extensions",
     ":core:injections",
+    ":data:remote",
+    ":data:local",
     ":features:login",
     ":features:home:homeContainer",
     ":features:home:newsList",
