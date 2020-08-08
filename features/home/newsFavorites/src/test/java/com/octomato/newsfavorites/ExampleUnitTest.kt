@@ -1,4 +1,4 @@
-package com.octomato.unittest
+package com.octomato.newsfavorites
 
 import org.junit.Test
 
