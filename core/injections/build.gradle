@@ -1,8 +1,9 @@
 import dependencies.Dependencies
+import dependencies.BuildPlugins
 
-apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
+apply plugin: BuildPlugins.ANDROID_APPLICATION
+apply plugin: BuildPlugins.KOTLIN_ANDROID
+apply plugin: BuildPlugins.KOTLIN_ANDROID_EXTENSIONS
 
 android {
     compileSdkVersion 29

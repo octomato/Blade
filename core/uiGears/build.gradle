@@ -1,6 +1,8 @@
-apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
+import dependencies.BuildPlugins
+
+apply plugin: BuildPlugins.ANDROID_APPLICATION
+apply plugin: BuildPlugins.KOTLIN_ANDROID
+apply plugin: BuildPlugins.KOTLIN_ANDROID_EXTENSIONS
 
 android {
     compileSdkVersion 29
@@ -27,4 +29,5 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation(Dependencies.NAVIGATION_FRAGMENT)
 }

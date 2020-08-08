@@ -1,9 +1,11 @@
+import dependencies.BuildPlugins
 import dependencies.Dependencies
 import dependencies.TestDependencies
+import dependencies.BuildModules
 
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
+apply plugin: BuildPlugins.ANDROID_APPLICATION
+apply plugin: BuildPlugins.KOTLIN_ANDROID
+apply plugin: BuildPlugins.KOTLIN_ANDROID_EXTENSIONS
 
 android {
     compileSdkVersion BuildAndroidConfig.COMPILE_SDK_VERSION
@@ -30,11 +32,34 @@ android {
         getByName("main").java.srcDirs("src/main/kotlin")
         getByName("test").java.srcDirs("src/test/kotlin")
     }
+//    dynamicFeatures = mutableSetOf(
+//            BuildModules.Features.HOME,
+//            BuildModules.Features.CHARACTERS_LIST,
+//            BuildModules.Features.CHARACTERS_FAVORITES
+//    )
 
+    dataBinding {
+        isEnabled = true
+    }
+
+    androidExtensions {
+        isExperimental = true
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation(project(BuildModules.CORE))
+
     implementation(Dependencies.KOTLIN)
     implementation(Dependencies.APPCOMPAT)
     implementation(Dependencies.CORE_KTX)
